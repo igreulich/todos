@@ -34,12 +34,12 @@ function applyEnv(config) {
       mode: 'production',
       devtool: 'source-map',
       optimization: {
+        runtimeChunks: 'single',
         splitChunks: {
           cacheGroups: {
             vendor: {
               test: /[\\/]node_modules[\\/]/,
               chunks: 'initial',
-              name: 'javascripts/vendor.js',
               enforce: true,
             },
           },

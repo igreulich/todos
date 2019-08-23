@@ -1,8 +1,8 @@
 {
-  "name": "tallo-ui-kit",
+  "name": "todos",
   "version": "0.1.0",
-  "description": "Tallo Inc.'s react component library and ui documentation",
-  "main": "dist/tui-kit.js",
+  "description": "A overly engineered todo app to learn with",
+  "main": "dist/app.js",
   "dependencies": {
     "core-js": "^3.2.1",
     "react": "^16.9.0",
@@ -38,7 +38,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/STEMPremier/tallo-ui-kit.git"
+    "url": "git+https://github.com/igreulich/todos.git"
   },
   "keywords": [
     "react",
@@ -52,7 +52,7 @@
   "author": "Tallo Inc., Engineering",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/STEMPremier/tallo-ui-kit/issues"
+    "url": "https://github.com/igreulich/todos/issues"
   },
-  "homepage": "https://github.com/STEMPremier/tallo-ui-kit#readme"
+  "homepage": "https://github.com/igreulich/todos#readme"
 }
