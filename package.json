@@ -1,0 +1,25 @@
+{
+  "name": "todos",
+  "version": "0.1.0",
+  "description": "an over engineered todo list app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igreulich/todos.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "semantic-ui",
+    "react-router"
+  ],
+  "author": "Ian Greulich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igreulich/todos/issues"
+  },
+  "homepage": "https://github.com/igreulich/todos#readme"
+}
