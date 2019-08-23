@@ -1,58 +1,31 @@
 {
   "name": "todos",
   "version": "0.1.0",
-  "description": "A overly engineered todo app to learn with",
-  "main": "dist/app.js",
+  "private": true,
   "dependencies": {
-    "core-js": "^3.2.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "regenerator-runtime": "^0.13.3",
-    "semantic-ui-react": "^0.88.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
-    "@babel/preset-react": "^7.0.0",
-    "babel-eslint": "^10.0.2",
-    "babel-loader": "^8.0.6",
-    "cross-env": "^5.2.0",
-    "eslint": "^6.1.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-loader": "^2.2.1",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.7.0",
-    "lodash.flowright": "^3.5.0",
-    "terser-webpack-plugin": "^1.4.1",
-    "webpack": "^4.39.2",
-    "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.0"
+    "react-scripts": "3.1.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js",
-    "dist": "cross-env NODE_ENV=production webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/igreulich/todos.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "keywords": [
-    "react",
-    "ui-kit",
-    "styleguide",
-    "user-interface",
-    "components",
-    "style",
-    "documentation"
-  ],
-  "author": "Tallo Inc., Engineering",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/igreulich/todos/issues"
-  },
-  "homepage": "https://github.com/igreulich/todos#readme"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
