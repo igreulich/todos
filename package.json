@@ -2,8 +2,9 @@
   "name": "todos",
   "version": "0.1.0",
   "description": "an over engineered todo list app",
-  "main": "index.js",
+  "private": true,
   "scripts": {
+    "start": "webpack-dev-server --config webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/igreulich/todos/issues"
   },
-  "homepage": "https://github.com/igreulich/todos#readme"
+  "homepage": "https://github.com/igreulich/todos#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "lodash.flowright": "^3.5.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
+  }
 }
