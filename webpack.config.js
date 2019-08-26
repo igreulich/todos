@@ -1,18 +1,34 @@
+const path = require('path');
 const webpack = require('webpack');
 const flowright = require('lodash.flowright');
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || '';
 
 function generateBaseConfig() {
   const config = {
+    context: path.resolve(__dirname),
+    entry: {
+      app: ['./src/index.js'],
+    },
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].js',
+      publicPath: '/',
+    },
     mode: '',
     devtool: '',
     resolve: {
       extensions: ['*', '.js', '.jsx'],
     },
     module: {},
-    plugins: [],
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: './src/index.html',
+        title: 'Over Engineered Todo List App',
+      }),
+    ],
   }
 
   return config
@@ -21,7 +37,7 @@ function generateBaseConfig() {
 function applyEnv(config) {
   let newConfig;
 
-  if (nodeEnv === 'production') {
+  if (NODE_ENV === 'production') {
     newConfig = {
       ...config,
       mode: 'production',
