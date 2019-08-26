@@ -10,7 +10,7 @@ function generateBaseConfig() {
   const config = {
     context: path.resolve(__dirname),
     entry: {
-      app: ['./src/index.js'],
+      app: ['react-hot-loader/patch', './src/index.js'],
     },
     output: {
       path: path.resolve(__dirname, 'dist'),

@@ -5,7 +5,9 @@ module.exports = function(api) {
     '@babel/preset-env',
     '@babel/preset-react',
   ];
-  const plugins = [];
+  const plugins = [
+    'react-hot-loader/babel'
+  ];
 
   return {
     presets,
