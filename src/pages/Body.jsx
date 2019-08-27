@@ -1,7 +1,15 @@
 import React from 'react';
 
+import {
+  Icon,
+} from 'semantic-ui-react';
+
 const Body = () => {
-  return <section>This is a Body.</section>;
+  return (
+    <section>
+      <Icon name="tty" />
+    </section>
+  );
 };
 
 export default Body;

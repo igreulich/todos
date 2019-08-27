@@ -96,6 +96,14 @@ function applyLoaders(config) {
         use: [
           devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'
         ],
+      }, {
+        test: /\.(woff(2)?|ttf|eot|svg|png)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+          },
+        }],
       }],
     },
   };
