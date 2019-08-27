@@ -10,9 +10,11 @@ export default class Body extends Component {
   };
 
   render() {
+    const { icon } = this.state;
+
     return (
       <section>
-        <Icon name="tty" />
+        <Icon name={icon} size="massive" />
       </section>
     );
   }
