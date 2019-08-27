@@ -10,11 +10,12 @@ export default class Body extends Component {
   };
 
   render() {
+const { size } = this.props; // eslint-disable-line
     const { icon } = this.state;
 
     return (
       <section>
-        <Icon name={icon} size={this.props.size} />
+        <Icon name={icon} size={size} />
       </section>
     );
   }

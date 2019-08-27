@@ -7,14 +7,12 @@ import Footer from './Footer';
 
 import '../styles/app.less';
 
-const App = () => {
-  return (
-    <>
-      <Header />
-      <Body size="massive" />
-      <Footer />
-    </>
-  );
-};
+const App = () => (
+  <>
+    <Header />
+    <Body size="massive" />
+    <Footer />
+  </>
+);
 
 export default hot(App);
