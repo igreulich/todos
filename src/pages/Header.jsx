@@ -1,5 +1,11 @@
 import React from 'react';
 
-const Header = () => <header>This is a Header.</header>;
+import { Header, Segment } from 'semantic-ui-react';
 
-export default Header;
+const Head = () => (
+  <Segment as="header" basic>
+    <Header icon="plug" content="Uptime Guarantee" />
+  </Segment>
+);
+
+export default Head;

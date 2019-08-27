@@ -1,22 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import {
-  Icon,
-} from 'semantic-ui-react';
+import PropTypes from 'prop-types';
 
-export default class Body extends Component {
-  state = {
-    icon: 'tasks',
-  };
+import { Segment } from 'semantic-ui-react';
 
-  render() {
-const { size } = this.props; // eslint-disable-line
-    const { icon } = this.state;
+import { Todos } from '../components';
 
-    return (
-      <section>
-        <Icon name={icon} size={size} />
-      </section>
-    );
-  }
-}
+const Body = (props) => {
+  const { attached } = props;
+
+  return (
+    <Segment as="section" attached={attached} basic>
+      <Todos />
+    </Segment>
+  );
+};
+
+Body.propTypes = {
+  attached: PropTypes.string,
+};
+
+Body.defaultProps = {
+  attached: '',
+};
+
+export default Body;
