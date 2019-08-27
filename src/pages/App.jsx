@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <Body/ >
+      <Body size="massive" />
       <Footer />
     </>
   );

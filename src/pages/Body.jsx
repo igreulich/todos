@@ -14,7 +14,7 @@ export default class Body extends Component {
 
     return (
       <section>
-        <Icon name={icon} size="massive" />
+        <Icon name={icon} size={this.props.size} />
       </section>
     );
   }

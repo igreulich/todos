@@ -90,7 +90,7 @@ function applyLoaders(config) {
       rules: [{
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: ['babel-loader', 'eslint-loader'],
       }, {
         test: /\.less$/,
         use: [
