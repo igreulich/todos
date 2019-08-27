@@ -7,6 +7,7 @@ module.exports = function(api) {
   ];
   const plugins = [
     'react-hot-loader/babel',
+    '@babel/plugin-proposal-class-properties',
   ];
 
   return {

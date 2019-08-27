@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import {
   Icon,
 } from 'semantic-ui-react';
 
-const Body = () => {
-  return (
-    <section>
-      <Icon name="tty" />
-    </section>
-  );
-};
+export default class Body extends Component {
+  state = {
+    icon: 'tasks',
+  };
 
-export default Body;
+  render() {
+    return (
+      <section>
+        <Icon name="tty" />
+      </section>
+    );
+  }
+}
