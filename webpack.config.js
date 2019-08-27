@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const flowright = require('lodash.flowright');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || '';
 
@@ -80,6 +81,7 @@ function applyEnv(config) {
 }
 
 function applyLoaders(config) {
+  const devMode = NODE_ENV !== 'production';
   let newConfig;
 
   newConfig = {
@@ -89,6 +91,11 @@ function applyLoaders(config) {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
+      }, {
+        test: /\.less$/,
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'
+        ],
       }],
     },
   };
