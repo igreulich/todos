@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Segment } from 'semantic-ui-react';
 
-import { Todos } from '../components';
+import { Todos } from '../features';
 
 const Body = (props) => {
   const { attached } = props;

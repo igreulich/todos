@@ -13,9 +13,6 @@ const Todo = () => (
   <Item>
     <Item.Content>
       <Item.Header as="a">My Neighbor Totoro</Item.Header>
-      <Item.Meta>
-        <span className="cinema">IFC Cinema</span>
-      </Item.Meta>
       <Item.Description>{paragraph}</Item.Description>
       <Item.Extra>
         <Button primary floated="right">

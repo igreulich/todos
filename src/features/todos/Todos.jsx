@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Item } from 'semantic-ui-react';
-import { Todo } from '..';
+import { Todo } from '.';
 
 const Todos = () => (
   <Item.Group divided>
