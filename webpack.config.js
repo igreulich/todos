@@ -1,5 +1,4 @@
 const path = require('path');
-const webpack = require('webpack');
 const flowright = require('lodash.flowright');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -30,9 +29,9 @@ function generateBaseConfig() {
         title: 'Over Engineered Todo List App',
       }),
     ],
-  }
+  };
 
-  return config
+  return config;
 }
 
 function applyEnv(config) {
@@ -82,9 +81,7 @@ function applyEnv(config) {
 
 function applyLoaders(config) {
   const devMode = NODE_ENV !== 'production';
-  let newConfig;
-
-  newConfig = {
+  const newConfig = {
     ...config,
     module: {
       rules: [{
@@ -94,7 +91,7 @@ function applyLoaders(config) {
       }, {
         test: /\.less$/,
         use: [
-          devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'less-loader',
         ],
       }, {
         test: /\.(woff(2)?|ttf|eot|svg|png)(\?v=\d+\.\d+\.\d+)?$/,
