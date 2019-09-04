@@ -1,28 +1,56 @@
+/* eslint-disable object-curly-newline */
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import {
   Button,
-  Icon,
-  Image,
   Item,
   Label,
 } from 'semantic-ui-react';
 
-const paragraph = <Image src="https://react.semantic-ui.com/images/wireframe/short-paragraph.png" />;
-const Todo = () => (
-  <Item>
-    <Item.Content>
-      <Item.Header as="a">My Neighbor Totoro</Item.Header>
-      <Item.Description>{paragraph}</Item.Description>
-      <Item.Extra>
-        <Button primary floated="right">
-          Buy tickets
-          <Icon name="right chevron" />
-        </Button>
-        <Label>Limited</Label>
-      </Item.Extra>
-    </Item.Content>
-  </Item>
-);
+import { addTodo, fetchTodos } from './todosReducer';
 
-export default Todo;
+const mapState = (state) => ({
+  todos: state.todos,
+});
+
+const mapDispatch = {
+  addTodo,
+  fetchTodos,
+};
+
+const notes = 'https://www.google.com';
+const Todo = (props) => {
+  const { due, title } = props;
+
+  return (
+    <Item>
+      <Item.Content>
+        <Item.Header as="a">{title}</Item.Header>
+        <Item.Meta>
+          <span className="cinema">{`Due: ${due}`}</span>
+        </Item.Meta>
+        <Item.Description>{notes}</Item.Description>
+        <Item.Extra>
+          <Button primary floated="right">
+            Complete
+          </Button>
+          <Label>Limited</Label>
+        </Item.Extra>
+      </Item.Content>
+    </Item>
+  );
+};
+
+Todo.propTypes = {
+  due: PropTypes.string,
+  title: PropTypes.string.isRequired,
+};
+
+Todo.defaultProps = {
+  due: '',
+};
+
+export default connect(mapState, mapDispatch)(Todo);
+/* eslint-enable object-curly-newline */
