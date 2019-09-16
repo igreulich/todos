@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 
 import reducer from './reducers';
 
-import App from './pages/App';
+import App from './sections/App';
 
 const store = configureStore({
   reducer,
@@ -31,8 +31,8 @@ render(App);
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./pages/App.jsx', () => {
-    const NextApp = require('./pages/App').default; // eslint-disable-line global-require
+  module.hot.accept('./sections/App.jsx', () => {
+    const NextApp = require('./sections/App').default; // eslint-disable-line global-require
 
     render(NextApp);
   });

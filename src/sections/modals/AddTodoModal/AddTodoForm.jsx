@@ -1,41 +1,56 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
-import { Form, Input } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
-import { addTodo } from '../../../features/todos/todosReducer';
+const AddTodoForm = (props) => {
+  const {
+    handleChange,
+  } = props;
 
-const mapState = () => ({});
-
-const mapDispatch = {
-  addTodo,
+  return (
+    <Form>
+      <Form.Group widths="equal">
+        <Form.Input
+          id="todo-form_todo"
+          label="Todo"
+          name="title"
+          onChange={handleChange}
+          placeholder="Learn React"
+        />
+      </Form.Group>
+      <Form.Group widths="equal">
+        <Form.TextArea
+          id="todo-form_note"
+          label="Note"
+          name="note"
+          onChange={handleChange}
+          placeholder="Check out this link: https://www.example.com"
+        />
+      </Form.Group>
+      <Form.Group widths="equal">
+        <Form.Input
+          id="todo-form_labels"
+          label="Labels"
+          name="labels"
+          onChange={handleChange}
+        />
+        <Form.Input
+          id="todo-form_labels"
+          label="Due"
+          name="due"
+          onChange={handleChange}
+          type="date"
+        />
+      </Form.Group>
+    </Form>
+  );
 };
 
-class AddTodoForm extends Component {
-  handleClick = () => {
-    const { addTodo } = this.props; // eslint-disable-line no-shadow
-
-    addTodo();
-  };
-
-  render() {
-    return (
-      <Form>
-        <Form.Group>
-          <Form.Field>
-            <Input />
-          </Form.Field>
-        </Form.Group>
-      </Form>
-    );
-  }
-}
-
 AddTodoForm.propTypes = {
-  addTodo: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 AddTodoForm.defaultProps = {};
 
-export default connect(mapState, mapDispatch)(AddTodoForm);
+export default AddTodoForm;

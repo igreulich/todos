@@ -9,34 +9,46 @@ import {
   Label,
 } from 'semantic-ui-react';
 
-import { addTodo, fetchTodos } from './todosReducer';
+const mapState = () => ({});
 
-const mapState = (state) => ({
-  todos: state.todos,
-});
+const mapDispatch = {};
 
-const mapDispatch = {
-  addTodo,
-  fetchTodos,
-};
-
-const notes = 'https://www.google.com';
 const Todo = (props) => {
-  const { due, title } = props;
+  const { due, labels, note, title } = props;
+
+  /* eslint-disable react/no-array-index-key */
+  const renderLabels = () => labels.map((label, idx) => <Label key={idx}>{label}</Label>);
+  /* eslint-enable react/no-array-index-key */
 
   return (
     <Item>
       <Item.Content>
         <Item.Header as="a">{title}</Item.Header>
-        <Item.Meta>
-          <span className="cinema">{`Due: ${due}`}</span>
-        </Item.Meta>
-        <Item.Description>{notes}</Item.Description>
+        {
+          due && (
+            <Item.Meta>
+              <span className="cinema">{`Due: ${due}`}</span>
+            </Item.Meta>
+          )
+        }
+        {
+          note && (
+            <Item.Description>{note}</Item.Description>
+          )
+        }
         <Item.Extra>
-          <Button primary floated="right">
-            Complete
-          </Button>
-          <Label>Limited</Label>
+          <Button.Group floated="right">
+            <Button positive>Done</Button>
+            <Button.Or />
+            <Button negative>Delete</Button>
+          </Button.Group>
+          {
+            labels && (
+              <Label.Group>
+                {renderLabels()}
+              </Label.Group>
+            )
+          }
         </Item.Extra>
       </Item.Content>
     </Item>
@@ -45,11 +57,15 @@ const Todo = (props) => {
 
 Todo.propTypes = {
   due: PropTypes.string,
+  labels: PropTypes.array,
+  note: PropTypes.string,
   title: PropTypes.string.isRequired,
 };
 
 Todo.defaultProps = {
   due: '',
+  labels: [],
+  note: '',
 };
 
 export default connect(mapState, mapDispatch)(Todo);
