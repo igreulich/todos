@@ -44,13 +44,19 @@ const todosSlice = createSlice({
 });
 
 const { actions, reducer } = todosSlice;
-const { setTodos, toggleTodo } = actions;
-
-export const { addTodo } = actions;
+const { addTodo, setTodos, toggleTodo } = actions;
 
 export const fetchTodos = () => (dispatch) => {
   setTimeout(() => {
     dispatch(setTodos(todos));
+  }, 500);
+};
+
+export const createTodo = (payload) => (dispatch) => {
+  const todo = { ...payload, id: uuid() };
+
+  setTimeout(() => {
+    dispatch(addTodo(todo));
   }, 500);
 };
 

@@ -1,3 +1,4 @@
+/* eslint-disable object-curly-newline */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -8,30 +9,26 @@ import {
 } from 'semantic-ui-react';
 import AddTodoForm from './AddTodoForm';
 
-import { addTodo } from '../../../features/todos/todosReducer';
+import { createTodo } from '../../../features/todos/todosReducer';
 
 const mapState = () => ({});
 
 const mapDispatch = {
-  addTodo,
+  createTodo,
 };
 
 class AddTodoModal extends Component {
   state = {
     due: '',
-    labels: [],
+    labels: '',
     note: '',
     title: '',
   };
 
-  handleChange = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
   handleAddTodo = () => {
-    const { addTodo } = this.props; // eslint-disable-line no-shadow
+    const { createTodo } = this.props; // eslint-disable-line no-shadow
     const { due, labels, note, title } = this.state; // eslint-disable-line object-curly-newline
-    const todoLabels = [...new Set([...labels.split(' ')])];
+    const todoLabels = labels ? [...new Set([...labels.split(' ')])] : [];
     const todo = {
       labels: todoLabels,
       due,
@@ -39,19 +36,56 @@ class AddTodoModal extends Component {
       title,
     };
 
-    addTodo(todo);
+    createTodo(todo);
+    this.handleModalClose();
   };
 
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleModalClose = () => {
+    this.setState({ open: false });
+    this.resetForm();
+  };
+
+  handleModalOpen = () => this.setState({ open: true });
+
+  resetForm = () => this.setState({
+    due: '',
+    labels: '',
+    note: '',
+    title: '',
+  });
+
   render() {
+    const { due, labels, note, open, title } = this.state;
+
     return (
-      <Modal trigger={<Button color="blue">Add Todo</Button>}>
+      <Modal
+        onClose={this.handleModalClose}
+        open={open}
+        trigger={<Button color="blue" onClick={this.handleModalOpen}>Add Todo</Button>}
+        closeIcon
+      >
         <Modal.Header>Add a Todo</Modal.Header>
         <Modal.Content>
           <AddTodoForm
+            due={due}
             handleChange={this.handleChange}
+            labels={labels}
+            note={note}
+            title={title}
           />
         </Modal.Content>
         <Modal.Actions>
+          <Button
+            color="red"
+            onClick={this.handleModalClose}
+            basic
+          >
+            Cancel
+          </Button>
           <Button
             color="blue"
             onClick={this.handleAddTodo}
@@ -66,9 +100,10 @@ class AddTodoModal extends Component {
 }
 
 AddTodoModal.propTypes = {
-  addTodo: PropTypes.func.isRequired,
+  createTodo: PropTypes.func.isRequired,
 };
 
 AddTodoModal.defaultProps = {};
 
 export default connect(mapState, mapDispatch)(AddTodoModal);
+/* eslint-enable object-curly-newline */
