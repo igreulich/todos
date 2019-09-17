@@ -10,12 +10,20 @@ import {
   Label,
 } from 'semantic-ui-react';
 
+import { toggleTodoDone } from './todosReducer';
+
 const mapState = () => ({});
 
-const mapDispatch = {};
+const mapDispatch = {
+  toggleTodoDone,
+};
 
 const Todo = (props) => {
-  const { due, labels, note, title } = props;
+  const { due, id, labels, note, title, toggleTodoDone } = props; // eslint-disable-line no-shadow
+
+  const handleClick = () => {
+    toggleTodoDone(id);
+  };
 
   const renderLabels = () => labels.map((label, idx) => <Label key={idx}>{label}</Label>);
 
@@ -37,7 +45,7 @@ const Todo = (props) => {
         }
         <Item.Extra>
           <Button.Group floated="right">
-            <Button positive>Done</Button>
+            <Button positive onClick={handleClick}>Done</Button>
             <Button.Or />
             <Button negative>Delete</Button>
           </Button.Group>
@@ -60,6 +68,7 @@ Todo.propTypes = {
   labels: PropTypes.array,
   note: PropTypes.string,
   title: PropTypes.string.isRequired,
+  toggleTodoDone: PropTypes.func.isRequired,
 };
 
 Todo.defaultProps = {

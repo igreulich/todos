@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import { createSlice } from 'redux-starter-kit';
 import uuid from 'uuid';
 
@@ -31,14 +32,19 @@ const todosSlice = createSlice({
       return { ...state, todos: [...state.todos, { ...action.payload }] };
     },
     setTodos(state, action) { return { ...state, todos: [...action.payload] }; },
-    // setTodos: (state, action) => ({ ...state, todos: [...action.payload] }),
-    addTodo(state, action) { return { ...state, todos: [...state.todos, { ...action.payload }] }; },
-    // addTodo: (state, action) => ({ ...state, todos: [...state.todos, { ...action.payload }] }),
+    toggleTodo(state, action) {
+      return {
+        ...state,
+        todos: state.todos.map(
+          (todo) => (todo.id === action.payload ? { ...todo, done: !todo.done } : todo),
+        ),
+      };
+    },
   },
 });
 
 const { actions, reducer } = todosSlice;
-const { setTodos } = actions;
+const { setTodos, toggleTodo } = actions;
 
 export const { addTodo } = actions;
 
@@ -48,4 +54,11 @@ export const fetchTodos = () => (dispatch) => {
   }, 500);
 };
 
+export const toggleTodoDone = (payload) => (dispatch) => {
+  setTimeout(() => {
+    dispatch(toggleTodo(payload));
+  }, 500);
+};
+
 export default reducer;
+/* eslint-enable no-shadow */
