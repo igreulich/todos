@@ -1,5 +1,4 @@
 /* eslint-disable object-curly-newline */
-/* eslint-disable react/no-array-index-key */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -27,8 +26,15 @@ class Todos extends Component {
   renderTodos = () => {
     const { todos } = this.props;
 
-    return todos.map((todo, index) => (
-      <Todo due={todo.due} key={index} labels={todo.labels} note={todo.note} title={todo.title} />
+    return todos.map((todo) => (
+      <Todo
+        due={todo.due}
+        id={todo.id}
+        key={todo.id}
+        labels={todo.labels}
+        note={todo.note}
+        title={todo.title}
+      />
     ));
   };
 
@@ -49,5 +55,4 @@ Todos.propTypes = {
 Todos.defaultProps = {};
 
 export default connect(mapState, mapDispatch)(Todos);
-/* eslint-enable react/no-array-index-key */
 /* eslint-enable object-curly-newline */

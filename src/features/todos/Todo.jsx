@@ -1,4 +1,5 @@
 /* eslint-disable object-curly-newline */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -16,9 +17,7 @@ const mapDispatch = {};
 const Todo = (props) => {
   const { due, labels, note, title } = props;
 
-  /* eslint-disable react/no-array-index-key */
   const renderLabels = () => labels.map((label, idx) => <Label key={idx}>{label}</Label>);
-  /* eslint-enable react/no-array-index-key */
 
   return (
     <Item>
@@ -27,7 +26,7 @@ const Todo = (props) => {
         {
           due && (
             <Item.Meta>
-              <span className="cinema">{`Due: ${due}`}</span>
+              <span>{`Due: ${due}`}</span>
             </Item.Meta>
           )
         }
@@ -57,6 +56,7 @@ const Todo = (props) => {
 
 Todo.propTypes = {
   due: PropTypes.string,
+  id: PropTypes.string.isRequired,
   labels: PropTypes.array,
   note: PropTypes.string,
   title: PropTypes.string.isRequired,
@@ -69,4 +69,5 @@ Todo.defaultProps = {
 };
 
 export default connect(mapState, mapDispatch)(Todo);
+/* eslint-enable react/no-array-index-key */
 /* eslint-enable object-curly-newline */

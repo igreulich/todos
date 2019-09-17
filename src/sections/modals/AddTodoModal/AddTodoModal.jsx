@@ -18,10 +18,10 @@ const mapDispatch = {
 
 class AddTodoModal extends Component {
   state = {
-    title: '',
-    note: '',
-    labels: [],
     due: '',
+    labels: [],
+    note: '',
+    title: '',
   };
 
   handleChange = (event) => {
@@ -30,20 +30,13 @@ class AddTodoModal extends Component {
 
   handleAddTodo = () => {
     const { addTodo } = this.props; // eslint-disable-line no-shadow
-    const {
-      due,
-      labels,
-      note,
-      title,
-    } = this.state;
-    const todoLabels = [
-      ...new Set([...labels.split(' ')]),
-    ];
+    const { due, labels, note, title } = this.state; // eslint-disable-line object-curly-newline
+    const todoLabels = [...new Set([...labels.split(' ')])];
     const todo = {
       labels: todoLabels,
-      title,
-      note,
       due,
+      note,
+      title,
     };
 
     addTodo(todo);
@@ -60,9 +53,9 @@ class AddTodoModal extends Component {
         </Modal.Content>
         <Modal.Actions>
           <Button
-            basic
             color="blue"
             onClick={this.handleAddTodo}
+            basic
           >
             Add Todo
           </Button>
