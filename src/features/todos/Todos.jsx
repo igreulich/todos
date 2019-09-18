@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Item } from 'semantic-ui-react';
-import { Todo } from '.';
+import Todo from './Todo';
 
 import { fetchTodos } from './todosReducer';
 
