@@ -8,11 +8,16 @@ import './Header.less';
 
 const Head = () => (
   <Segment as="header" basic clearing inverted>
-    <Header className="todo-list__header" content="Over Engineered Todos" icon="list alternate outline" floated="left" />
-    <Header className="todo-list__header" floated="right">
+    <Header
+      className="todo-list__header"
+      content="Over Engineered Todos"
+      floated="left"
+      icon="list alternate outline"
+    />
+    <div style={{ float: 'right' }}>
+      <Filters />
       <AddTodoModal />
-    </Header>
-    <Filters />
+    </div>
   </Segment>
 );
 

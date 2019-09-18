@@ -65,7 +65,7 @@ class AddTodoModal extends Component {
       <Modal
         onClose={this.handleModalClose}
         open={open}
-        trigger={<Button color="blue" onClick={this.handleModalOpen}>Add Todo</Button>}
+        trigger={<Button icon="plus" onClick={this.handleModalOpen} primary />}
         closeIcon
       >
         <Modal.Header>Add a Todo</Modal.Header>
@@ -82,14 +82,13 @@ class AddTodoModal extends Component {
           <Button
             color="red"
             onClick={this.handleModalClose}
-            basic
+            inverted
           >
             Cancel
           </Button>
           <Button
             color="blue"
             onClick={this.handleAddTodo}
-            basic
           >
             Add Todo
           </Button>

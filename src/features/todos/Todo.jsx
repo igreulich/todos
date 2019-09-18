@@ -44,11 +44,10 @@ const Todo = (props) => {
           )
         }
         <Item.Extra>
-          <Button.Group floated="right">
-            <Button positive onClick={handleClick}>Done</Button>
-            <Button.Or />
-            <Button negative>Delete</Button>
-          </Button.Group>
+          <div style={{ float: 'right' }}>
+            <Button color="red" inverted>Delete</Button>
+            <Button onClick={handleClick} primary>Done</Button>
+          </div>
           {
             labels && (
               <Label.Group>

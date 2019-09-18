@@ -35,7 +35,7 @@ class Filters extends Component {
         onClose={this.handleClose}
         onOpen={this.handleOpen}
         position="bottom right"
-        trigger={<Button floated="right" icon="angle down" inverted />}
+        trigger={<Button color="green" icon="settings" inverted />}
       >
         <Popup.Header>Filters</Popup.Header>
         <Popup.Content>
