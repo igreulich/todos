@@ -5,7 +5,6 @@ import { Sticky } from 'semantic-ui-react';
 
 import Header from './header';
 import Body from './Body';
-import Footer from './Footer';
 
 import '../styles/app.less';
 
@@ -14,15 +13,12 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <div ref={this.contextRef}>
-          <Sticky context={this.contextRef}>
-            <Header />
-          </Sticky>
-          <Body attached="bottom" />
-        </div>
-        <Footer />
-      </>
+      <div ref={this.contextRef}>
+        <Sticky context={this.contextRef}>
+          <Header />
+        </Sticky>
+        <Body attached="bottom" />
+      </div>
     );
   }
 }
