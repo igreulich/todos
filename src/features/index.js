@@ -1,9 +1,7 @@
-import {
-  Todo,
-  Todos,
-} from './todos';
+import Filters from './filters';
+import Todos from './todos';
 
 export {
-  Todo,
+  Filters,
   Todos,
 };
