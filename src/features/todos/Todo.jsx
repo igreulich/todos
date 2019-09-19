@@ -19,7 +19,15 @@ const mapDispatch = {
 };
 
 const Todo = (props) => {
-  const { due, id, labels, note, title, toggleTodoDone } = props; // eslint-disable-line no-shadow
+  const {
+    done,
+    due,
+    id,
+    labels,
+    note,
+    title,
+    toggleTodoDone, // eslint-disable-line no-shadow
+  } = props;
 
   const handleClick = () => {
     toggleTodoDone(id);
@@ -46,7 +54,7 @@ const Todo = (props) => {
         <Item.Extra>
           <div style={{ float: 'right' }}>
             <Button color="red" inverted>Delete</Button>
-            <Button onClick={handleClick} primary>Done</Button>
+            <Button onClick={handleClick} primary>{done ? 'Un-Do' : 'Done'}</Button>
           </div>
           {
             labels && (
@@ -62,6 +70,7 @@ const Todo = (props) => {
 };
 
 Todo.propTypes = {
+  done: PropTypes.bool,
   due: PropTypes.string,
   id: PropTypes.string.isRequired,
   labels: PropTypes.array,
@@ -71,6 +80,7 @@ Todo.propTypes = {
 };
 
 Todo.defaultProps = {
+  done: false,
   due: '',
   labels: [],
   note: '',

@@ -29,6 +29,7 @@ class TodoList extends Component {
 
     return todos.map((todo) => (
       <Todo
+        done={todo.done}
         due={todo.due}
         id={todo.id}
         key={todo.id}
