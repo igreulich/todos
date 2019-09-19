@@ -31,6 +31,12 @@ const todosSlice = createSlice({
     addTodo(state, action) {
       return { ...state, todos: [...state.todos, { ...action.payload }] };
     },
+    removeTodo(state, action) {
+      return {
+        ...state,
+        todos: state.todos.filter(t => t.id !== action.payload), // eslint-disable-line arrow-parens
+      };
+    },
     setTodos(state, action) { return { ...state, todos: [...action.payload] }; },
     toggleTodo(state, action) {
       return {
@@ -44,19 +50,30 @@ const todosSlice = createSlice({
 });
 
 const { actions, reducer } = todosSlice;
-const { addTodo, setTodos, toggleTodo } = actions;
-
-export const fetchTodos = () => (dispatch) => {
-  setTimeout(() => {
-    dispatch(setTodos(todos));
-  }, 500);
-};
+const {
+  addTodo,
+  removeTodo,
+  setTodos,
+  toggleTodo,
+} = actions;
 
 export const createTodo = (payload) => (dispatch) => {
   const todo = { ...payload, id: uuid() };
 
   setTimeout(() => {
     dispatch(addTodo(todo));
+  }, 500);
+};
+
+export const deleteTodo = (payload) => (dispatch) => {
+  setTimeout(() => {
+    dispatch(removeTodo(payload));
+  }, 500);
+};
+
+export const fetchTodos = () => (dispatch) => {
+  setTimeout(() => {
+    dispatch(setTodos(todos));
   }, 500);
 };
 

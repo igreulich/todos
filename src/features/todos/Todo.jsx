@@ -1,5 +1,6 @@
 /* eslint-disable object-curly-newline */
 /* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -10,28 +11,30 @@ import {
   Label,
 } from 'semantic-ui-react';
 
-import { toggleTodoDone } from './todosReducer';
+import { deleteTodo, toggleTodoDone } from './todosReducer';
 
 const mapState = () => ({});
 
 const mapDispatch = {
+  deleteTodo,
   toggleTodoDone,
 };
 
 const Todo = (props) => {
   const {
+    deleteTodo,
     done,
     due,
     id,
     labels,
     note,
     title,
-    toggleTodoDone, // eslint-disable-line no-shadow
+    toggleTodoDone,
   } = props;
 
-  const handleClick = () => {
-    toggleTodoDone(id);
-  };
+  const handleDelete = () => deleteTodo(id);
+
+  const handleToggle = () => toggleTodoDone(id);
 
   const renderLabels = () => labels.map((label, idx) => <Label key={idx}>{label}</Label>);
 
@@ -53,8 +56,8 @@ const Todo = (props) => {
         }
         <Item.Extra>
           <div style={{ float: 'right' }}>
-            <Button color="red" inverted>Delete</Button>
-            <Button onClick={handleClick} primary>{done ? 'Un-Do' : 'Done'}</Button>
+            <Button color="red" onClick={handleDelete} inverted>Delete</Button>
+            <Button onClick={handleToggle} primary>{done ? 'Un-Do' : 'Done'}</Button>
           </div>
           {
             labels && (
@@ -70,6 +73,7 @@ const Todo = (props) => {
 };
 
 Todo.propTypes = {
+  deleteTodo: PropTypes.func.isRequired,
   done: PropTypes.bool,
   due: PropTypes.string,
   id: PropTypes.string.isRequired,
@@ -87,5 +91,6 @@ Todo.defaultProps = {
 };
 
 export default connect(mapState, mapDispatch)(Todo);
+/* eslint-disable no-shadow */
 /* eslint-enable react/no-array-index-key */
 /* eslint-enable object-curly-newline */
