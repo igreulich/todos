@@ -9,7 +9,7 @@ import {
 } from 'semantic-ui-react';
 import AddTodoForm from './AddTodoForm';
 
-import { createTodo } from '../../../features/todos/todosReducer';
+import { createTodo } from '../todosReducer';
 
 const mapState = () => ({});
 

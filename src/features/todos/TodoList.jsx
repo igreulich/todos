@@ -17,7 +17,7 @@ const mapDispatch = {
   fetchTodos,
 };
 
-class Todos extends Component {
+class TodoList extends Component {
   componentDidMount() {
     const { fetchTodos } = this.props; // eslint-disable-line no-shadow
 
@@ -48,12 +48,12 @@ class Todos extends Component {
   }
 }
 
-Todos.propTypes = {
+TodoList.propTypes = {
   fetchTodos: PropTypes.func.isRequired,
   todos: PropTypes.array.isRequired,
 };
 
-Todos.defaultProps = {};
+TodoList.defaultProps = {};
 
-export default connect(mapState, mapDispatch)(Todos);
+export default connect(mapState, mapDispatch)(TodoList);
 /* eslint-enable object-curly-newline */

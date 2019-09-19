@@ -1,3 +1,7 @@
-import Todos from './Todos';
+import AddTodoModal from './AddTodoModal';
+import TodoList from './TodoList';
 
-export default Todos;
+export {
+  AddTodoModal,
+  TodoList,
+};

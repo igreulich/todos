@@ -10,7 +10,7 @@ const Body = (props) => {
 
   return (
     <Segment as="section" attached={attached} basic>
-      <Todos />
+      <Todos.TodoList />
     </Segment>
   );
 };

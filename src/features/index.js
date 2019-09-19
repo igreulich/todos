@@ -1,5 +1,5 @@
 import Filters from './filters';
-import Todos from './todos';
+import * as Todos from './todos';
 
 export {
   Filters,

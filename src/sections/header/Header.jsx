@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { Header, Segment } from 'semantic-ui-react';
-import { AddTodoModal } from '../modals';
-import { Filters } from '../../features';
+import { Filters, Todos } from '../../features';
 
 import './Header.less';
 
@@ -16,7 +15,7 @@ const Head = () => (
     />
     <div style={{ float: 'right' }}>
       <Filters />
-      <AddTodoModal />
+      <Todos.AddTodoModal />
     </div>
   </Segment>
 );
