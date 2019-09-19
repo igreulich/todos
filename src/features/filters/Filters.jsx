@@ -1,10 +1,22 @@
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import {
   Button,
   Form,
   Popup,
 } from 'semantic-ui-react';
+
+import { setFilters, setShowCompleted } from './filtersReducer';
+
+const mapState = () => ({});
+
+const mapDispatch = {
+  setFilters,
+  setShowCompleted,
+};
 
 class Filters extends Component {
   state = {
@@ -15,14 +27,32 @@ class Filters extends Component {
 
   handleClose = () => this.setState({ open: false });
 
-  handleFilter = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
+  handleFilters = (event) => {
+    const { setFilters } = this.props;
+
+    this.setState(
+      { [event.target.name]: event.target.value },
+      () => {
+        const { filters } = this.state;
+
+        setFilters(filters);
+      },
+    );
   };
 
   handleOpen = () => this.setState({ open: true });
 
   handleShowCompleted = () => {
-    this.setState((prevState) => ({ showCompleted: !prevState.showCompleted }));
+    const { setShowCompleted } = this.props;
+
+    this.setState(
+      (prevState) => ({ showCompleted: !prevState.showCompleted }),
+      () => {
+        const { showCompleted } = this.state;
+
+        setShowCompleted(showCompleted);
+      },
+    );
   };
 
   render() {
@@ -44,7 +74,7 @@ class Filters extends Component {
               id="todo-filter_filter"
               label="Filter by labels"
               name="filters"
-              onChange={this.handleFilter}
+              onChange={this.handleFilters}
               value={filters}
             />
             <Form.Checkbox
@@ -61,4 +91,12 @@ class Filters extends Component {
   }
 }
 
-export default Filters;
+Filters.propTypes = {
+  setFilters: PropTypes.func.isRequired,
+  setShowCompleted: PropTypes.func.isRequired,
+};
+
+Filters.defaultProps = {};
+
+export default connect(mapState, mapDispatch)(Filters);
+/* eslint-enable no-shadow */
