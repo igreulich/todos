@@ -7,9 +7,10 @@ import { Item } from 'semantic-ui-react';
 import Todo from './Todo';
 
 import { fetchTodos } from './todosReducer';
+import { selectVisibleTodos } from './todosSelectors';
 
 const mapState = (state) => ({
-  todos: state.todos.todos,
+  todos: selectVisibleTodos(state),
 });
 
 const mapDispatch = {
