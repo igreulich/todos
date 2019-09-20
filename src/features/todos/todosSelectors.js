@@ -1,9 +1,7 @@
 /* eslint-disable arrow-parens */
 import { createSelector } from 'redux-starter-kit';
 
-function haystackHasNeedles(haystack = [], needles = []) {
-  return needles.some(needle => haystack.includes(needle));
-}
+import { haystackHasAnyNeedles } from '../../utils';
 
 const selectFilters = state => state.filters;
 const selectTodos = state => state.todos.todos;
@@ -14,7 +12,7 @@ const selectVisibleTodos = createSelector(
     const { labels, showCompleted } = filters;
     const vTodos = showCompleted ? todos : todos.filter(t => !t.done);
 
-    return labels ? vTodos.filter(t => haystackHasNeedles(t.labels, labels.split(' '))) : vTodos;
+    return labels ? vTodos.filter(t => haystackHasAnyNeedles(t.labels, labels.split(' '))) : vTodos;
   },
 );
 
