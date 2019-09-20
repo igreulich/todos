@@ -1,9 +1,7 @@
 import React from 'react';
 
 import { Header, Segment } from 'semantic-ui-react';
-import { Filters, Todos } from '../../features';
-
-import './Header.less';
+import { Filters, Todos } from '../features';
 
 const Head = () => (
   <Segment as="header" basic clearing inverted>
