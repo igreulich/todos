@@ -9,12 +9,12 @@ import {
   Popup,
 } from 'semantic-ui-react';
 
-import { setFilters, setShowCompleted } from './filtersReducer';
+import { setLabels, setShowCompleted } from './filtersReducer';
 
 const mapState = () => ({});
 
 const mapDispatch = {
-  setFilters,
+  setLabels,
   setShowCompleted,
 };
 
@@ -28,14 +28,14 @@ class Filters extends Component {
   handleClose = () => this.setState({ open: false });
 
   handleFilters = (event) => {
-    const { setFilters } = this.props;
+    const { setLabels } = this.props;
 
     this.setState(
       { [event.target.name]: event.target.value },
       () => {
         const { filters } = this.state;
 
-        setFilters(filters);
+        setLabels(filters);
       },
     );
   };
@@ -92,7 +92,7 @@ class Filters extends Component {
 }
 
 Filters.propTypes = {
-  setFilters: PropTypes.func.isRequired,
+  setLabels: PropTypes.func.isRequired,
   setShowCompleted: PropTypes.func.isRequired,
 };
 

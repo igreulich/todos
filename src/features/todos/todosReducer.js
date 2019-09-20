@@ -5,23 +5,28 @@ import uuid from 'uuid';
 const todos = [{
   due: '2019-09-23',
   id: uuid(),
-  labels: ['javascript', 'react', 'ui'],
+  labels: ['javascript', 'react', 'ui', 'library'],
   note: 'Checkout the official documentation at https://reactjs.org/',
   title: 'Learn React',
 }, {
   id: uuid(),
-  labels: ['javascript', 'react', 'state-management'],
+  labels: ['javascript', 'react', 'state-management', 'library'],
   title: 'Learn Redux',
 }, {
   id: uuid(),
-  labels: ['javascript', 'vue', 'ui', 'state'],
+  labels: ['javascript', 'ui', 'framework'],
   note: 'Checkout the official documentation at https://vuejs.org/',
   title: 'Learn Vue',
 }, {
   done: true,
   id: uuid(),
-  note: 'Checkout the documentation at https://mdn.dev/',
+  labels: ['javascript', 'personal'],
+  note: 'Checkout the MDN reference at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference',
   title: 'Learn Javascript',
+}, {
+  id: uuid(),
+  labels: ['personal', 'chore'],
+  title: 'Walk the dog',
 }];
 
 const todosSlice = createSlice({

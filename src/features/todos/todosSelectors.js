@@ -1,12 +1,21 @@
 /* eslint-disable arrow-parens */
 import { createSelector } from 'redux-starter-kit';
 
-const selectShowCompleted = state => state.filters.showCompleted;
+function haystackHasNeedles(haystack = [], needles = []) {
+  return needles.some(needle => haystack.includes(needle));
+}
+
+const selectFilters = state => state.filters;
 const selectTodos = state => state.todos.todos;
 
 const selectVisibleTodos = createSelector(
-  [selectTodos, selectShowCompleted],
-  (todos, showCompleted) => (showCompleted ? todos : todos.filter(t => !t.done)),
+  [selectTodos, selectFilters],
+  (todos, filters) => {
+    const { labels, showCompleted } = filters;
+    const vTodos = showCompleted ? todos : todos.filter(t => !t.done);
+
+    return labels ? vTodos.filter(t => haystackHasNeedles(t.labels, labels.split(' '))) : vTodos;
+  },
 );
 
 export {
