@@ -1,6 +1,7 @@
 import React, { Component, createRef } from 'react';
 import { hot } from 'react-hot-loader/root';
 
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
 
 import Header from './Header';
@@ -13,12 +14,14 @@ class App extends Component {
 
   render() {
     return (
-      <div ref={this.contextRef}>
-        <Sticky context={this.contextRef}>
-          <Header />
-        </Sticky>
-        <Body attached="bottom" />
-      </div>
+      <Router>
+        <div ref={this.contextRef}>
+          <Sticky context={this.contextRef}>
+            <Header />
+          </Sticky>
+          <Body attached="bottom" />
+        </div>
+      </Router>
     );
   }
 }

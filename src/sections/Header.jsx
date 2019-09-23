@@ -1,21 +1,45 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import { Header, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+import { Menu, Segment } from 'semantic-ui-react';
 import { Filters, Todos } from '../features';
 
-const Head = () => (
-  <Segment as="header" basic clearing inverted>
-    <Header
-      className="todo-list__header"
-      content="Over Engineered Todos"
-      floated="left"
-      icon="list alternate outline"
-    />
-    <div style={{ float: 'right' }}>
-      <Filters />
-      <Todos.AddTodoModal />
-    </div>
-  </Segment>
-);
+class Head extends Component {
+  state = {
+    activeItem: 'todos',
+  };
+
+  handleClick = (event, { name }) => this.setState({ activeItem: name });
+
+  render() {
+    const { activeItem } = this.state;
+
+    return (
+      <Segment as="header" basic inverted>
+        <Menu inverted pointing secondary>
+          <Menu.Item header>Over Engineered Todos</Menu.Item>
+          <Menu.Item
+            active={activeItem === 'todos'}
+            as={Link}
+            name="todos"
+            onClick={this.handleClick}
+            to="/"
+          />
+          <Menu.Item
+            active={activeItem === 'aboutUs'}
+            as={Link}
+            name="aboutUs"
+            onClick={this.handleClick}
+            to="/about"
+          />
+          <Menu.Menu position="right" inverted>
+            <Filters />
+            <Todos.AddTodoModal />
+          </Menu.Menu>
+        </Menu>
+      </Segment>
+    );
+  }
+}
 
 export default Head;
