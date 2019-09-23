@@ -51,7 +51,7 @@ function generateBaseConfig() {
 }
 
 function applyLoaders(config) {
-  const styleLoader = (env === MODES.PRODUCTION) ? MiniCssExtractPlugin.loader : 'style=loader';
+  const styleLoader = (env === MODES.PRODUCTION) ? MiniCssExtractPlugin.loader : 'style-loader';
 
   return {
     ...config,
