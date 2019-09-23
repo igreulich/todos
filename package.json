@@ -19,6 +19,9 @@
     "semantic-ui",
     "react-router"
   ],
+  "engines": {
+    "node": "10.16.x"
+  },
   "author": "Ian Greulich",
   "license": "ISC",
   "bugs": {
