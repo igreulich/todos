@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import { Link } from 'react-router-dom';
 import { Menu, Segment } from 'semantic-ui-react';
-import { Filters, Todos } from '../features';
+import { Filters, Todos } from '../../features';
+
+import './Header.less';
 
 class Head extends Component {
   state = {
@@ -16,7 +18,7 @@ class Head extends Component {
 
     return (
       <Segment as="header" basic inverted>
-        <Menu inverted pointing secondary>
+        <Menu className="nav__menu-main" inverted pointing secondary>
           <Menu.Item header>Over Engineered Todos</Menu.Item>
           <Menu.Item
             active={activeItem === 'todos'}

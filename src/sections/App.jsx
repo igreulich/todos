@@ -4,7 +4,7 @@ import { hot } from 'react-hot-loader/root';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
 
-import Header from './Header';
+import Header from './header';
 import Body from './Body';
 
 import '../styles/app.less';
