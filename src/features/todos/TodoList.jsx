@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Item } from 'semantic-ui-react';
+import { Item, Segment } from 'semantic-ui-react';
 import Todo from './Todo';
 
 import { fetchTodos } from './todosReducer';
@@ -42,9 +42,11 @@ class TodoList extends Component {
 
   render() {
     return (
-      <Item.Group divided>
-        {this.renderTodos()}
-      </Item.Group>
+      <Segment basic>
+        <Item.Group divided>
+          {this.renderTodos()}
+        </Item.Group>
+      </Segment>
     );
   }
 }

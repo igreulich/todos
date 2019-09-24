@@ -11,7 +11,7 @@ const Body = (props) => {
   const { attached } = props;
 
   return (
-    <Segment as="section" attached={attached} basic>
+    <Segment as="section" attached={attached} className="fitted" basic>
       <Route path="/" exact component={Todos.TodoList} />
       <Route path="/about" component={About} />
     </Segment>
