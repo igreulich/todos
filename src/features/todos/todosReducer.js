@@ -1,55 +1,41 @@
 /* eslint-disable no-shadow */
 import { createSlice } from 'redux-starter-kit';
 import uuid from 'uuid';
-
-const todos = [{
-  due: '2019-09-23',
-  id: uuid(),
-  labels: ['javascript', 'react', 'ui', 'library'],
-  note: 'Checkout the official documentation at https://reactjs.org/',
-  title: 'Learn React',
-}, {
-  id: uuid(),
-  labels: ['javascript', 'react', 'state-management', 'library'],
-  title: 'Learn Redux',
-}, {
-  id: uuid(),
-  labels: ['javascript', 'ui', 'framework'],
-  note: 'Checkout the official documentation at https://vuejs.org/',
-  title: 'Learn Vue',
-}, {
-  done: true,
-  id: uuid(),
-  labels: ['javascript', 'personal'],
-  note: 'Checkout the MDN reference at https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference',
-  title: 'Learn Javascript',
-}, {
-  id: uuid(),
-  labels: ['personal', 'chore'],
-  title: 'Walk the dog',
-}];
+import ls from 'local-storage';
 
 const todosSlice = createSlice({
   slice: 'todos',
   initialState: { todos: [] },
   reducers: {
     addTodo(state, action) {
-      return { ...state, todos: [...state.todos, { ...action.payload }] };
+      const newState = { ...state, todos: [...state.todos, { ...action.payload }] };
+
+      ls('todos', newState.todos);
+
+      return newState;
     },
     removeTodo(state, action) {
-      return {
+      const newState = {
         ...state,
         todos: state.todos.filter(t => t.id !== action.payload), // eslint-disable-line arrow-parens
       };
+
+      ls('todos', newState.todos);
+
+      return newState;
     },
     setTodos(state, action) { return { ...state, todos: [...action.payload] }; },
     toggleTodo(state, action) {
-      return {
+      const newState = {
         ...state,
         todos: state.todos.map(
           (todo) => (todo.id === action.payload ? { ...todo, done: !todo.done } : todo),
         ),
       };
+
+      ls('todos', newState.todos);
+
+      return newState;
     },
   },
 });
@@ -77,6 +63,8 @@ export const deleteTodo = (payload) => (dispatch) => {
 };
 
 export const fetchTodos = () => (dispatch) => {
+  const todos = ls('todos');
+
   setTimeout(() => {
     dispatch(setTodos(todos));
   }, 500);
