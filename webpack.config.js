@@ -147,6 +147,15 @@ const configurate = flow(
   applyServer,
 );
 
+/* The object that `configurate()` returns may have null or undefined values.
+ * I don't know how webpack will react to that, nor do I wish to find out.
+ * So this function creates a new object from all the values in the generated
+ * one but omits all keys with a null, or undefined value.
+ *
+ * `a` is the accumulator object; the new object
+ * `k` is the key whose value we are checking
+ * `v` is the value we are evaluating for the keys inclusion
+ */
 module.exports = Object.entries(configurate()).reduce(
   (a, [k, v]) => (v == null ? a : { ...a, [k]: v }),
   {},

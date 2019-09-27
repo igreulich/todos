@@ -1,7 +1,6 @@
 /* eslint-disable object-curly-newline */
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { Form } from 'semantic-ui-react';
 
 const AddTodoForm = (props) => {

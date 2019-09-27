@@ -10,7 +10,7 @@ export default function haystackHasAllNeedles(haystack = [], needles = []) {
    *
    * Practically this means `[].every([literally any condition]);` will always return true.
    * While being technically true, (as every element in the collection does meet the condition),
-   * for our purposes, it is backwards. So we need to deal with it.
+   * for our purposes, it is backwards. So we need to deal with that possiblity.
    */
   return noNeedles ? needles.every(needle => haystack.includes(needle)) : false;
 }

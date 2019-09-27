@@ -1,6 +1,5 @@
 import React, { Component, createRef } from 'react';
 import { hot } from 'react-hot-loader/root';
-
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Sticky } from 'semantic-ui-react';
 

@@ -2,12 +2,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import { Item, Segment } from 'semantic-ui-react';
-import Todo from './Todo';
 
 import { fetchTodos } from './todosReducer';
 import { selectVisibleTodos } from './todosSelectors';
+import Todo from './Todo';
 
 const mapState = (state) => ({
   todos: selectVisibleTodos(state),

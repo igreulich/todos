@@ -1,9 +1,8 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
-
 import { Route } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
+
 import { Todos } from '../features';
 import { About } from '../pages';
 

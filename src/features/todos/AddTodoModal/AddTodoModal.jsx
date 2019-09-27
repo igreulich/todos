@@ -2,14 +2,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import {
   Button,
   Modal,
 } from 'semantic-ui-react';
-import AddTodoForm from './AddTodoForm';
 
 import { createTodo } from '../todosReducer';
+import AddTodoForm from './AddTodoForm';
 
 const mapState = () => ({});
 

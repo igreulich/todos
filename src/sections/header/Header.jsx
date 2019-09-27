@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Link } from 'react-router-dom';
 import { Menu, Segment } from 'semantic-ui-react';
 import { Filters, Todos } from '../../features';
