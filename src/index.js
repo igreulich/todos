@@ -23,7 +23,7 @@ const render = (Component) => {
         <Component />
       </AppContainer>
     </Provider>,
-    document.getElementById('app'), // eslint-disable-line no-undef
+    document.getElementById('app'),
   );
 };
 
