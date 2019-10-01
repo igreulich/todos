@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filters Actions setLabels should dispatch the correct action 1`] = `
+Array [
+  Object {
+    "payload": "these are labels",
+    "type": "filters/setLabels",
+  },
+]
+`;
+
+exports[`Filters Actions setShowCompleted should dispatch the correct action 1`] = `
+Array [
+  Object {
+    "payload": false,
+    "type": "filters/setShowCompleted",
+  },
+]
+`;
+
+exports[`Filters Reducer filters/setLabels should return the correct state 1`] = `
+Object {
+  "labels": "these are labels",
+  "showCompleted": false,
+}
+`;
+
+exports[`Filters Reducer filters/setShowCompleted should return the correct state 1`] = `
+Object {
+  "labels": "",
+  "showCompleted": true,
+}
+`;
+
+exports[`Filters Reducer initialState should return the correct, default, state 1`] = `
+Object {
+  "labels": "",
+  "showCompleted": false,
+}
+`;
