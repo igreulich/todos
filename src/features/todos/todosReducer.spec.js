@@ -1,9 +1,11 @@
 import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 
-import reducer from './todosReducer';
-//import * as actions from './todosReducer';
+import reducer, * as actions from './todosReducer';
+import { getAction } from '../../utils/test';
 
-const mockStore = configureStore();
+
+const mockStore = configureStore([thunk]);
 const store = mockStore();
 
 /* Action Tests
@@ -17,7 +19,7 @@ const store = mockStore();
  * way as to allow us to see what was dispatched. By creating and using a
  * mocked store, we can do just that.
  *
- * We dispatch an action. We then ask the store what actions is received,
+ * We dispatch an action. We then ask the store what actions it received,
  * and check that against a known list of expected actions, (In our case
  * that list of expected actions is stored in the snapshot file.)
  *
@@ -46,26 +48,61 @@ describe('Todos Actions', () => {
 
   /* Async Action Tests */
   describe('createTodo', () => {
-    test('should dispatch the correct action', () => {
-      expect(true).toEqual(true);
+    test('should dispatch the correct action', async () => {
+      const expectedAction = {
+        payload: { title: 'flerm' },
+        type: 'todos/addTodo',
+      };
+
+      store.dispatch(actions.createTodo({ title: 'flerm' }));
+
+      // All this action does is dispatch a different one in a promise.
+      // So there isn't all the much to test.
+      const foundAction = await getAction(store, 'todos/addTodo');
+      // You don't normally have to do this, but in this app, the ID is made in the action,
+      // not on the otherside of an api call.
+      delete foundAction.payload.id;
+
+      expect(foundAction).toEqual(expectedAction);
     });
   });
 
   describe('deleteTodo', () => {
-    test('should dispatch the correct action', () => {
-      expect(true).toEqual(true);
+    test('should dispatch the correct action', async () => {
+      const expectedAction = {
+        payload: { id: 'todo-1' },
+        type: 'todos/removeTodo',
+      };
+
+      store.dispatch(actions.deleteTodo({ id: 'todo-1' }));
+
+      expect(await getAction(store, 'todos/removeTodo')).toEqual(expectedAction);
     });
   });
 
   describe('fetchTodo', () => {
-    test('should dispatch the correct action', () => {
-      expect(true).toEqual(true);
+    test('should dispatch the correct action', async () => {
+      const expectedAction = {
+        payload: null,
+        type: 'todos/setTodos',
+      };
+
+      store.dispatch(actions.fetchTodos());
+
+      expect(await getAction(store, 'todos/setTodos')).toEqual(expectedAction);
     });
   });
 
   describe('toggleTodDone', () => {
-    test('should dispatch the correct action', () => {
-      expect(true).toEqual(true);
+    test('should dispatch the correct action', async () => {
+      const expectedAction = {
+        payload: { id: 'todo-1' },
+        type: 'todos/toggleTodo',
+      };
+
+      store.dispatch(actions.toggleTodoDone({ id: 'todo-1' }));
+
+      expect(await getAction(store, 'todos/toggleTodo')).toEqual(expectedAction);
     });
   });
 });
@@ -98,12 +135,74 @@ describe('Todos Reducer', () => {
   describe('initial state', () => {
     test('is correct', () => {
       const action = { type: 'test/action' };
-      const initialState = { todos: [] };
 
       // The reducer() call takes a state and an action. We are not providing
       // a state, so the default initial state will be used. That means there
       // is no clean up.
-      expect(reducer(undefined, action)).toEqual(initialState);
+      expect(reducer(undefined, action)).toMatchSnapshot();
+    });
+  });
+
+  // This action adds to state, so I can rely on the default initial state.
+  describe('todos/addTodo', () => {
+    test('adds a todo to the todo list', () => {
+      const action = {
+        payload: { title: 'flerm' },
+        type: 'todos/addTodo',
+      };
+
+      expect(reducer(undefined, action)).toMatchSnapshot();
+    });
+  });
+
+  // This action removes a thing from state. So to accurately represent what
+  // state might looks like when you are removing something, so I have a state
+  // object I would like to the reducer to start with.
+  describe('todos/removeTodo', () => {
+    test('removes a todo from the todo list', () => {
+      const action = {
+        payload: 'todo-1',
+        type: 'todos/removeTodo',
+      };
+      const initialState = {
+        todos: [{
+          id: 'todo-1',
+          title: 'yeet me',
+        }],
+      };
+
+      expect(reducer(initialState, action)).toMatchSnapshot();
+    });
+  });
+
+  describe('todos/setTodos', () => {
+    test('sets the list of todos', () => {
+      const action = {
+        payload: [
+          { title: 'flerm' },
+          { title: 'yeet' },
+        ],
+        type: 'todos/setTodos',
+      };
+
+      expect(reducer(undefined, action)).toMatchSnapshot();
+    });
+  });
+
+  describe('todos/toggleTodo', () => {
+    test('changes the done state of a todo', () => {
+      const action = {
+        payload: 'todo-1',
+        type: 'todos/toggleTodo',
+      };
+      const initialState = {
+        todos: [{
+          id: 'todo-1',
+          title: 'flerm',
+        }],
+      };
+
+      expect(reducer(initialState, action)).toMatchSnapshot();
     });
   });
 });

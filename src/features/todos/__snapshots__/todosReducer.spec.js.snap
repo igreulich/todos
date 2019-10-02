@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Todos Reducer initial state is correct 1`] = `
+Object {
+  "todos": Array [],
+}
+`;
+
+exports[`Todos Reducer todos/addTodo adds a todo to the todo list 1`] = `
+Object {
+  "todos": Array [
+    Object {
+      "title": "flerm",
+    },
+  ],
+}
+`;
+
+exports[`Todos Reducer todos/removeTodo removes a todo from the todo list 1`] = `
+Object {
+  "todos": Array [],
+}
+`;
+
+exports[`Todos Reducer todos/setTodos sets the list of todos 1`] = `
+Object {
+  "todos": Array [
+    Object {
+      "title": "flerm",
+    },
+    Object {
+      "title": "yeet",
+    },
+  ],
+}
+`;
+
+exports[`Todos Reducer todos/toggleTodo changes the done state of a todo 1`] = `
+Object {
+  "todos": Array [
+    Object {
+      "done": true,
+      "id": "todo-1",
+      "title": "flerm",
+    },
+  ],
+}
+`;
