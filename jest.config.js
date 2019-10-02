@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/src/reducers/',
     '<rootDir>/src/styles/',
     '<rootDir>/src/test/',
+    '<rootDir>/src/utils/test.js',
   ],
 };

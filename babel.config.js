@@ -1,3 +1,10 @@
+const MODES = {
+  PRODUCTION: 'production',
+  DEVELOPMENT: 'development',
+  TEST: 'test',
+};
+const env = process.env.NODE_ENV || MODES.DEVELOPMENT;
+
 module.exports = (api) => {
   api.cache(true);
 
@@ -10,8 +17,10 @@ module.exports = (api) => {
     '@babel/plugin-proposal-class-properties',
   ];
 
+  if (env === MODES.TEST) plugins.push('@babel/plugin-transform-runtime');
+
   return {
-    presets,
     plugins,
+    presets,
   };
 };
