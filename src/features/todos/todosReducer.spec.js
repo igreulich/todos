@@ -156,8 +156,8 @@ describe('Todos Reducer', () => {
   });
 
   // This action removes a thing from state. So to accurately represent what
-  // state might looks like when you are removing something, so I have a state
-  // object I would like to the reducer to start with.
+  // state might looks like when you are removing something, I have created a
+  // state object I would like to the reducer to use that has a 'todo' in it.
   describe('todos/removeTodo', () => {
     test('removes a todo from the todo list', () => {
       const action = {
