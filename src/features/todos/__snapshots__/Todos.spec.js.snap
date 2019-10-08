@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Todos /> render() renders the compnent 1`] = `
+<ContextProvider
+  value={null}
+>
+  <Todo
+    deleteTodo={[Function]}
+    done={false}
+    due=""
+    labels={Array []}
+    note=""
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    toggleTodoDone={[Function]}
+  />
+</ContextProvider>
+`;
