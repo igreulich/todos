@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddTodoForm /> render() renders the compnent 1`] = `
+<Form
+  as="form"
+>
+  <FormGroup
+    widths="equal"
+  >
+    <FormInput
+      as={[Function]}
+      control={[Function]}
+      id="todo-form_todo"
+      label="Todo"
+      name="title"
+      onChange={[Function]}
+      placeholder="Learn React"
+      value=" "
+    />
+  </FormGroup>
+  <FormGroup
+    widths="equal"
+  >
+    <FormTextArea
+      as={[Function]}
+      control={[Function]}
+      id="todo-form_note"
+      label="Note"
+      name="note"
+      onChange={[Function]}
+      placeholder="Check out this link: https://www.example.com"
+      value=" "
+    />
+  </FormGroup>
+  <FormGroup
+    widths="equal"
+  >
+    <FormInput
+      as={[Function]}
+      control={[Function]}
+      id="todo-form_labels"
+      label="Labels"
+      name="labels"
+      onChange={[Function]}
+      value=" "
+    />
+    <FormInput
+      as={[Function]}
+      control={[Function]}
+      id="todo-form_labels"
+      label="Due"
+      name="due"
+      onChange={[Function]}
+      type="date"
+      value=" "
+    />
+  </FormGroup>
+</Form>
+`;
