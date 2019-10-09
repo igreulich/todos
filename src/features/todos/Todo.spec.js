@@ -13,7 +13,7 @@ const store = mockStore(initialState);
 describe('<Todos />', () => {
   describe('render()', () => {
     test('renders the compnent', () => {
-      const wrapper = shallow(<Todo store={store} />);
+      const wrapper = shallow(<Todo store={store} id="1" title="flerm" />);
 
       expect(toJson(wrapper)).toMatchSnapshot();
     });

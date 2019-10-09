@@ -8,6 +8,7 @@ exports[`<Todos /> render() renders the compnent 1`] = `
     deleteTodo={[Function]}
     done={false}
     due=""
+    id="1"
     labels={Array []}
     note=""
     store={
@@ -20,6 +21,7 @@ exports[`<Todos /> render() renders the compnent 1`] = `
         "subscribe": [Function],
       }
     }
+    title="flerm"
     toggleTodoDone={[Function]}
   />
 </ContextProvider>
