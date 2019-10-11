@@ -5,7 +5,7 @@ import ls from 'local-storage';
 
 // This is not a typical function you will need to make. I had to make a couple
 // of consessions because I don't have an api with a database to use.
-const fakeFetch = (value) => new Promise((resolve) => {
+const fakeFetch = (value = true) => new Promise((resolve) => {
   setTimeout(() => {
     resolve(value);
   }, 500);
@@ -72,7 +72,7 @@ export const createTodo = (payload) => (dispatch) => {
 };
 
 export const deleteTodo = (payload) => (dispatch) => {
-  fakeFetch(true).then(() => {
+  fakeFetch().then(() => {
     dispatch(removeTodo(payload));
   });
 };
@@ -86,7 +86,7 @@ export const fetchTodos = () => (dispatch) => {
 };
 
 export const toggleTodoDone = (payload) => (dispatch) => {
-  fakeFetch(true).then(() => {
+  fakeFetch().then(() => {
     dispatch(toggleTodo(payload));
   });
 };
