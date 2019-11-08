@@ -1,8 +1,7 @@
-/* eslint-disable arrow-parens */
 import uuid from 'uuid';
 import ls from 'local-storage';
 
-const createTodo = (todo) => {
+const createTodo = todo => {
   const newTodo = { ...todo, id: uuid() };
   const todos = ls('todos');
   const newTodos = [...todos, newTodo];
@@ -12,7 +11,7 @@ const createTodo = (todo) => {
   return newTodo;
 };
 
-const deleteTodo = (id) => {
+const deleteTodo = id => {
   const todos = ls('todos');
   const newTodos = todos.filter(t => t.id !== id);
 
@@ -23,7 +22,7 @@ const deleteTodo = (id) => {
 
 const fetchTodos = () => ls('todos');
 
-const updateTodo = (id) => {
+const updateTodo = id => {
   const todos = ls('todos');
   const newTodos = todos.map(t => (t.id === id ? { ...t, done: !t.done } : t));
 
@@ -67,4 +66,3 @@ export default function fakeFetch(request = {}) {
     }, 500);
   });
 }
-/* eslint-enable arrow-parens */
