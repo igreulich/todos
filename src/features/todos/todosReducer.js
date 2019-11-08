@@ -26,12 +26,12 @@ import { fakeFetch } from '../../utils';
 // });
 
 // const { actions, reducer } = todosSlice;
-// const { addTodo, removeTodo, setTodos, toggleTodo, } = actions;
+// const { addTodo, removeTodo, setTodos, toggleTodo } = actions;
 
-// In a real app, all fakeFetch() calls would be fetch() calls, if not a library like axios.
-// It would *not* be a promise you made.
+// // In a real app, all fakeFetch() calls would be fetch() calls, if not a library like axios.
+// // It would *not* be a promise you made.
 // export const createTodo = payload => dispatch => {
-//   const req = { type: 'POST', body: payload, };
+//   const req = { type: 'POST', body: payload };
 
 //   fakeFetch(req).then(res => {
 //     dispatch(addTodo(res));
@@ -39,7 +39,7 @@ import { fakeFetch } from '../../utils';
 // };
 
 // export const deleteTodo = payload => dispatch => {
-//   const req = { type: 'DELETE', body: payload, };
+//   const req = { type: 'DELETE', body: payload };
 
 //   fakeFetch(req).then(res => {
 //     dispatch(removeTodo(res));
