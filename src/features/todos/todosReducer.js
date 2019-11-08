@@ -3,7 +3,7 @@ import { createSlice } from 'redux-starter-kit';
 
 // I needed to have fetch-like behavior without having a server, per-se.
 // This is not something you generally need to make.
-import { fakeFetch } from '../../utils';
+import { fakeFetch } from 'utils';
 
 const todosSlice = createSlice({
   slice: 'todos',
