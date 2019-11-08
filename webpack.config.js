@@ -43,6 +43,7 @@ function generateBaseConfig() {
       extensions: ['*', '.js', '.jsx'],
       alias: {
         'react-dom': '@hot-loader/react-dom',
+        utils: './src/utils',
       },
     },
     devtool,
