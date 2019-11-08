@@ -1,4 +1,3 @@
-/* eslint-disable arrow-parens */
 import { createSelector } from 'redux-starter-kit';
 
 import { haystackHasAnyNeedles } from '../../utils';
@@ -19,4 +18,3 @@ const selectVisibleTodos = createSelector(
 export {
   selectVisibleTodos, // eslint-disable-line import/prefer-default-export
 };
-/* eslint-enable arrow-parens */

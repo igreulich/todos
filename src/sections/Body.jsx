@@ -6,7 +6,7 @@ import { Segment } from 'semantic-ui-react';
 import { Todos } from '../features';
 import { About } from '../pages';
 
-const Body = (props) => {
+const Body = props => {
   const { attached } = props;
 
   return (

@@ -27,7 +27,7 @@ describe('<Filters />', () => {
    * lack of a beter word, that 'just' happen'.
    *
    * this.setState is part of react, so when you write a function in your component
-   * that ONLY calls you can skip (unit) testing. If you do find a bug it is going
+   * that ONLY calls that you can skip (unit) testing. If you do find a bug it is going
    * to be in React, and thats not our purview.
    *
    * In addition, anything that the comes with Semantic-UI we can skip (unit) testing

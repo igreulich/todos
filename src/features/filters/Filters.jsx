@@ -26,7 +26,7 @@ class Filters extends Component {
 
   handleClose = () => this.setState({ open: false });
 
-  handleFilters = (event) => {
+  handleFilters = event => {
     const { setLabels } = this.props;
 
     this.setState(
@@ -45,7 +45,7 @@ class Filters extends Component {
     const { setShowCompleted } = this.props;
 
     this.setState(
-      (prevState) => ({ showCompleted: !prevState.showCompleted }),
+      prevState => ({ showCompleted: !prevState.showCompleted }),
       () => {
         const { showCompleted } = this.state;
 
