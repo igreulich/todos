@@ -1,5 +1,5 @@
-/* eslint-disable object-curly-newline */
 /* eslint-disable react/no-array-index-key */
+/* eslint-disable object-curly-newline */
 /* eslint-disable no-shadow */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -19,17 +19,8 @@ const mapDispatch = {
   toggleTodoDone,
 };
 
-const Todo = (props) => {
-  const {
-    deleteTodo,
-    done,
-    due,
-    id,
-    labels,
-    note,
-    title,
-    toggleTodoDone,
-  } = props;
+const Todo = props => {
+  const { deleteTodo, done, due, id, labels, note, title, toggleTodoDone } = props;
 
   const handleDelete = () => deleteTodo(id);
 
@@ -90,6 +81,6 @@ Todo.defaultProps = {
 };
 
 export default connect(mapState, mapDispatch)(Todo);
-/* eslint-disable no-shadow */
+/* eslint-enable no-shadow */
+/* eslint-disable object-curly-newline */
 /* eslint-enable react/no-array-index-key */
-/* eslint-enable object-curly-newline */

@@ -1,5 +1,3 @@
-/* eslint-disable arrow-parens */
-
 // returns `true` if every element in the needles array is in the haystack array
 export default function haystackHasAllNeedles(haystack = [], needles = []) {
   const noNeedles = needles.length;
@@ -14,4 +12,3 @@ export default function haystackHasAllNeedles(haystack = [], needles = []) {
    */
   return noNeedles ? needles.every(needle => haystack.includes(needle)) : false;
 }
-/* eslint-enable arrow-parens */

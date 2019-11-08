@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 
-const AddTodoForm = (props) => {
+const AddTodoForm = props => {
   const { due, handleChange, labels, note, title } = props;
 
   return (
@@ -60,4 +60,4 @@ AddTodoForm.propTypes = {
 AddTodoForm.defaultProps = {};
 
 export default AddTodoForm;
-/* eslint-disable object-curly-newline */
+/* eslint-enable object-curly-newline */

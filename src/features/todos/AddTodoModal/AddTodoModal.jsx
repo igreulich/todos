@@ -26,7 +26,7 @@ class AddTodoModal extends Component {
 
   handleAddTodo = () => {
     const { createTodo } = this.props; // eslint-disable-line no-shadow
-    const { due, labels, note, title } = this.state; // eslint-disable-line object-curly-newline
+    const { due, labels, note, title } = this.state;
     const todoLabels = labels ? [...new Set([...labels.split(' ')])] : [];
     const todo = {
       labels: todoLabels,
@@ -39,7 +39,7 @@ class AddTodoModal extends Component {
     this.handleModalClose();
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
 

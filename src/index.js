@@ -12,7 +12,7 @@ const store = configureStore({
   reducer,
 });
 
-const render = (Component) => {
+const render = Component => {
   ReactDOM.render(
     <Provider store={store}>
       <AppContainer>

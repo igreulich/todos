@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-newline */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -8,7 +7,7 @@ import { fetchTodos } from './todosReducer';
 import { selectVisibleTodos } from './todosSelectors';
 import Todo from './Todo';
 
-const mapState = (state) => ({
+const mapState = state => ({
   todos: selectVisibleTodos(state),
 });
 
@@ -26,7 +25,7 @@ class TodoList extends Component {
   renderTodos = () => {
     const { todos } = this.props;
 
-    return todos.map((todo) => (
+    return todos.map(todo => (
       <Todo
         done={todo.done}
         due={todo.due}
@@ -58,4 +57,3 @@ TodoList.propTypes = {
 TodoList.defaultProps = {};
 
 export default connect(mapState, mapDispatch)(TodoList);
-/* eslint-enable object-curly-newline */

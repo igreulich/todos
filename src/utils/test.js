@@ -1,5 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-/* eslint-disable arrow-parens */
 const findAction = (store, type) => store.getActions().find(action => action.type === type);
 
 export function getAction(store, type) {
@@ -15,5 +14,4 @@ export function getAction(store, type) {
     });
   });
 }
-/* eslint-enable arrow-parens */
 /* eslint-enable import/prefer-default-export */
