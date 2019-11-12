@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { Segment } from 'semantic-ui-react';
 
 import { Todos } from '../features';
@@ -11,8 +11,10 @@ const Body = props => {
 
   return (
     <Segment as="section" attached={attached} className="fitted" basic>
-      <Route path="/" exact component={Todos.TodoList} />
-      <Route path="/about" component={About} />
+      <Switch>
+        <Route path="/" exact component={Todos.TodoList} />
+        <Route path="/about" component={About} />
+      </Switch>
     </Segment>
   );
 };
