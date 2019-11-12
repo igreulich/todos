@@ -25,6 +25,8 @@ function configurePlugins() {
   const plugins = [
     'react-hot-loader/babel',
     '@babel/plugin-proposal-class-properties',
+    '@babel/plugin-proposal-optional-chaining',
+    '@babel/plugin-proposal-nullish-coalescing-operator',
   ];
 
   if (env === MODES.TEST) plugins.push('@babel/plugin-transform-runtime');
@@ -32,7 +34,7 @@ function configurePlugins() {
   return plugins;
 }
 
-module.exports = (api) => {
+module.exports = api => {
   api.cache(true);
 
   return {
