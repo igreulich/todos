@@ -3,6 +3,7 @@ const flow = require('lodash.flow');
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const MODES = {
   PRODUCTION: 'production',
@@ -101,6 +102,20 @@ function applyPlugins(config) {
 function applyOptimizations(config) {
   const optimization = {
     runtimeChunk: 'single',
+    minimizer: [
+      new OptimizeCSSAssetsPlugin({
+        cssProcessorOptions: {
+          map: {
+            inline: false,
+            annotation: true,
+          },
+        },
+      }),
+      new TerserPlugin({
+        sourceMap: true,
+        parallel: true,
+      }),
+    ],
     splitChunks: {
       cacheGroups: {
         vendor: {
@@ -110,12 +125,6 @@ function applyOptimizations(config) {
         },
       },
     },
-    minimizer: [
-      new TerserPlugin({
-        sourceMap: true,
-        parallel: true,
-      }),
-    ],
   };
 
   return {
