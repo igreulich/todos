@@ -3,7 +3,7 @@ import ls from 'local-storage';
 
 const createTodo = todo => {
   const newTodo = { ...todo, id: uuid() };
-  const todos = ls('todos');
+  const todos = ls('todos') || [];
   const newTodos = [...todos, newTodo];
 
   ls('todos', newTodos);
@@ -12,7 +12,7 @@ const createTodo = todo => {
 };
 
 const deleteTodo = id => {
-  const todos = ls('todos');
+  const todos = ls('todos') || [];
   const newTodos = todos.filter(t => t.id !== id);
 
   ls('todos', newTodos);
@@ -20,10 +20,10 @@ const deleteTodo = id => {
   return id;
 };
 
-const fetchTodos = () => ls('todos');
+const fetchTodos = () => (ls('todos') || []);
 
 const updateTodo = id => {
-  const todos = ls('todos');
+  const todos = ls('todos') || [];
   const newTodos = todos.map(t => (t.id === id ? { ...t, done: !t.done } : t));
 
   ls('todos', newTodos);
