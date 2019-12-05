@@ -84,7 +84,7 @@ function applyPlugins(config) {
     plugins = [
       ...plugins,
       new MiniCssExtractPlugin({
-        filename: 'public/styles/[name].css',
+        filename: 'styles/[name].css',
       }),
     ];
   } else {
