@@ -59,6 +59,7 @@ describe('Todos Actions', () => {
       // All this action does is dispatch a different one in a promise.
       // So there isn't all the much to test.
       const foundAction = await getAction(store, 'todos/addTodo');
+
       // You don't normally have to do this, but in this app, the ID is made in the action,
       // not on the otherside of an api call.
       delete foundAction.payload.id;
@@ -82,14 +83,15 @@ describe('Todos Actions', () => {
 
   describe('fetchTodo', () => {
     test('should dispatch the correct action', async () => {
-      const expectedAction = {
-        payload: null,
-        type: 'todos/setTodos',
-      };
+      const expectedActionType = 'todos/setTodos';
 
       store.dispatch(actions.fetchTodos());
 
-      expect(await getAction(store, 'todos/setTodos')).toEqual(expectedAction);
+      const foundAction = await getAction(store, 'todos/setTodos');
+
+      // This test is a little different, in that there is no specific payload,
+      // so we just make sure the found action is the correct type.
+      expect(foundAction.type).toEqual(expectedActionType);
     });
   });
 
