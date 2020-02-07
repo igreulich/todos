@@ -46,6 +46,10 @@ function generateBaseConfig() {
         'react-dom': '@hot-loader/react-dom',
       },
     },
+    stats: {
+      colors: true,
+      modules: false,
+    },
     devtool,
     mode,
   };
