@@ -1,7 +1,7 @@
-import { createSlice } from 'redux-starter-kit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const filtersSlice = createSlice({
-  slice: 'filters',
+  name: 'filters',
   initialState: { labels: '', showCompleted: false },
   reducers: {
     setLabels(state, action) { return { ...state, labels: action.payload }; },

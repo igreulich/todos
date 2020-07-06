@@ -1,6 +1,3 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable object-curly-newline */
-/* eslint-disable no-shadow */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -20,13 +17,22 @@ const mapDispatch = {
 };
 
 const Todo = props => {
-  const { deleteTodo, done, due, id, labels, note, title, toggleTodoDone } = props;
+  const {
+    deleteTodo, // eslint-disable-line no-shadow
+    done,
+    due,
+    id,
+    labels,
+    note,
+    title,
+    toggleTodoDone, // eslint-disable-line no-shadow
+  } = props;
 
   const handleDelete = () => deleteTodo(id);
 
   const handleToggle = () => toggleTodoDone(id);
 
-  const renderLabels = () => labels.map((label, idx) => <Label key={idx}>{label}</Label>);
+  const renderLabels = () => labels.map(label => <Label key={label}>{label}</Label>);
 
   return (
     <Item>
@@ -81,6 +87,3 @@ Todo.defaultProps = {
 };
 
 export default connect(mapState, mapDispatch)(Todo);
-/* eslint-enable no-shadow */
-/* eslint-disable object-curly-newline */
-/* eslint-enable react/no-array-index-key */

@@ -70,6 +70,7 @@
   },
   "dependencies": {
     "@hot-loader/react-dom": "^16.13.0",
+    "@reduxjs/toolkit": "^1.4.0",
     "express": "^4.17.1",
     "express-favicon": "^2.0.1",
     "fomantic-ui-css": "^2.8.6",
@@ -81,7 +82,6 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-starter-kit": "^2.0.0",
     "semantic-ui-react": "^0.88.2",
     "uuid": "^8.2.0"
   }

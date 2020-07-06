@@ -1,12 +1,12 @@
 /* eslint-disable object-curly-newline */
-import { createSlice } from 'redux-starter-kit';
+import { createSlice } from '@reduxjs/toolkit';
 
 // I needed to have fetch-like behavior without having a server, per-se.
 // This is not something you generally need to make.
 import { fakeFetch } from '../../utils';
 
 const todosSlice = createSlice({
-  slice: 'todos',
+  name: 'todos',
   initialState: { todos: [] },
   reducers: {
     addTodo(state, action) { return { ...state, todos: [...state.todos, action.payload] }; },
