@@ -35,17 +35,17 @@ const Todo = props => {
 
   return (
     <div className="todo">
-      <h5>{title}</h5>
+      <h5 className="primary-text">{title}</h5>
       {
         due && (
-          <p className="small">
+          <p className="small help-text">
             {`Due: ${due}`}
           </p>
         )
       }
       {
         note && (
-          <p>{note}</p>
+          <p className="secondary-text">{note}</p>
         )
       }
       <div style={{ float: 'right' }}>
