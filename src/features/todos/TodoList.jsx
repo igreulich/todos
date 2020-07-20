@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Item, Segment } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 
 import { fetchTodos } from './todosReducer';
 import { selectVisibleTodos } from './todosSelectors';
@@ -41,9 +41,7 @@ class TodoList extends Component {
   render() {
     return (
       <Segment basic>
-        <Item.Group divided>
-          {this.renderTodos()}
-        </Item.Group>
+        {this.renderTodos()}
       </Segment>
     );
   }

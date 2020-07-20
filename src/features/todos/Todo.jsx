@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import {
-  Button,
-  Item,
-  Label,
-} from 'semantic-ui-react';
+import { Label } from 'semantic-ui-react';
+import { Button } from 'celula';
 
 import { deleteTodo, toggleTodoDone } from './todosReducer';
+
+import './todos.less';
 
 const mapState = () => ({});
 
@@ -35,36 +34,33 @@ const Todo = props => {
   const renderLabels = () => labels.map(label => <Label key={label}>{label}</Label>);
 
   return (
-    <Item>
-      <Item.Content>
-        <Item.Header as="a">{title}</Item.Header>
-        {
-          due && (
-            <Item.Meta>
-              <span>{`Due: ${due}`}</span>
-            </Item.Meta>
-          )
-        }
-        {
-          note && (
-            <Item.Description>{note}</Item.Description>
-          )
-        }
-        <Item.Extra>
-          <div style={{ float: 'right' }}>
-            <Button color="red" onClick={handleDelete} inverted>Delete</Button>
-            <Button onClick={handleToggle} primary>{done ? 'Un-Do' : 'Done'}</Button>
-          </div>
-          {
-            labels && (
-              <Label.Group>
-                {renderLabels()}
-              </Label.Group>
-            )
-          }
-        </Item.Extra>
-      </Item.Content>
-    </Item>
+    <div className="todo">
+      <h5>{title}</h5>
+      {
+        due && (
+          <p className="small">
+            {`Due: ${due}`}
+          </p>
+        )
+      }
+      {
+        note && (
+          <p>{note}</p>
+        )
+      }
+      <div style={{ float: 'right' }}>
+        <Button color="secondary" handleClick={handleDelete}>Delete</Button>
+        <Button color="primary" handleClick={handleToggle}>{done ? 'Un-Do' : 'Done'}</Button>
+      </div>
+      {
+        labels && (
+          <Label.Group>
+            {renderLabels()}
+          </Label.Group>
+        )
+      }
+      <div style={{ clear: 'both' }} />
+    </div>
   );
 };
 
