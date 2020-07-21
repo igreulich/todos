@@ -2559,7 +2559,7 @@ caseless@~0.12.0:
 
 celula@STEMPremier/celula#master:
   version "0.1.0"
-  resolved "git+ssh://git@github.com/STEMPremier/celula.git#e7b8ed082e68d180780365c079fd1408fd011e87"
+  resolved "git+ssh://git@github.com/STEMPremier/celula.git#55c211eca8d1bdaceb34c8625acf3c7d135c05d1"
   dependencies:
     classnames "^2.2.6"
 
