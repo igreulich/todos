@@ -72,7 +72,7 @@
     "@hot-loader/react-dom": "^16.13.0",
     "@reduxjs/toolkit": "^1.4.0",
     "celula": "STEMPremier/celula#master",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-favicon": "^2.0.1",
     "fomantic-ui-css": "^2.8.6",
     "local-storage": "^2.0.0",
